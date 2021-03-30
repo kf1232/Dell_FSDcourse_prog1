@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "FSDproject1": {
+      "commandName": "Project",
+      "workingDirectory": "$(TargetDir)"
+    }
+  }
+}
