@@ -17,14 +17,11 @@ namespace p1.Templates
             var exit = false;
             while (!exit)
             {
-                // Print the menu
                 printMenu();
                 printPrior(input);
-                // Take in user input
                 input = getAction();
                 switch (input)
                 {
-                    // execute user response
                     case 1: loadTeachers();  break;
                     case 2: saveTeachers(); break;
                     case 3: addTeachers(); break;
@@ -33,8 +30,6 @@ namespace p1.Templates
                     case 6: exit = true; break;
                     default: input = -1; break;
                 }
-                // Read exit action
-                // save teacher file
             }
         }
             

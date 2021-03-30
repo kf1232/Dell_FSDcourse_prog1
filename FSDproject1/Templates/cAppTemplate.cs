@@ -35,7 +35,7 @@ namespace p1.Templates
         protected override void saveTeachers()
         {
             string fPath = Directory.GetParent(Environment.CurrentDirectory).Parent.Parent.FullName;
-            string fileName = @$"{fPath}\teachers.txt";
+            string fileName = @$"{fPath}\teacher.txt";
             try
             {
                 var teachersRepository = new FileManager(fileName);
@@ -44,7 +44,20 @@ namespace p1.Templates
                 Console.WriteLine("Data written to file.");
             }
             catch
-            { printError("Unable to write to file."); }
+            {
+                try
+                {
+                    string file = "teacher.txt";
+                    var teachersRepository = new FileManager(file);
+                    List<Teacher> tList = _teachers.Values.ToList();
+                    teachersRepository.Save(tList);
+                    Console.WriteLine("Data written to file.");
+                }
+                catch
+                {
+                    Console.WriteLine("Unable to open file.");
+                }
+            }
         }
         protected override void loadTeachers()
         {
